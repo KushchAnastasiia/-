@@ -1,0 +1,35 @@
+{% extends 'blog/index.html' %} 
+{% load static %}
+{% block content%}
+<div class="container">
+  <h2 class="mt-2 mb-3">Значення останніх рівней:</h2>
+  <div class="mb-5">
+    {% for lg in lights_list %}
+    <div>
+    Значення освітленості: {{lg.lightning_value}}
+    <br>
+    {% for l in lg.lights %}
+      {% if l == 1 %}
+        <img
+          src="{% static "blog/light.png" %}"
+          style="width: 50px; height: 50px; border-radius: 50%;"/>
+      {% else %}
+        <img
+          src="{% static "blog/light2.png" %}"
+          style="width: 45px; height: 45px; border-radius: 50%;"/>
+      {% endif %}
+    {% endfor %}
+      <hr />
+      </div>
+    {% endfor %}
+  </div>
+  <h2 class="mb-3">Записи:</h2>
+  {% for article in articles %}
+  <div class="mt-2">
+    <h2>{{ article.title }}</h2>
+    {{ article.description }}
+    <hr />
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

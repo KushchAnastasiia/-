@@ -1,0 +1,35 @@
+{% extends 'blog/index.html' %} 
+
+{% block content%}
+<style>
+  form {
+    width: 100%;
+    max-width: 800px;
+    padding: 15px;
+  }
+  textarea {
+    width: 100%;
+    min-height: 400px;
+    max-height: 400px;
+  }
+</style>
+
+<div class="container">
+  <form action="{% url 'create' %}" method="post">
+    {% csrf_token %}
+    <div>
+      <label for="title">Input title</label>
+      <br />
+      {{ form.title }}
+    </div>
+    <div>
+      <label for="description">Input description</label>
+      <br />
+      {{ form.description }}
+    </div>
+    <div>
+      <input type="submit" value="Submit" class="btn btn-primary btn-block" />
+    </div>
+  </form>
+</div>
+{% endblock%}
