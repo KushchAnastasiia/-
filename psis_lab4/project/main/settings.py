@@ -127,3 +127,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'upload')
 MEDIA_URL = "/upload/"
 STATIC_URL = '/static/'
 STATIC_ROOT = 'static_files'
+
+MAX_LIGHTS_NUMBER = 8
+MAX_SENSOR_VALUE = 800
